@@ -12,6 +12,12 @@
         android:protectionLevel="signature" />
 
     <!-- Required  一些系统要求的权限，如访问网络等 -->
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <uses-permission android:name="com.gizwits.opensource.appkit.permission.JPUSH_MESSAGE" />
 
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
@@ -88,7 +94,8 @@
 
         <meta-data android:name="UMENG_CHANNEL" android:value="gizwits" />
 
-
+        <activity android:name="com.gizwits.opensource.appkit.BleModule.SearchActivity"
+            android:theme="@style/Theme.FloatActivity" />
         <activity android:name="com.gizwits.opensource.appkit.CommonModule.SplashActivity"
             android:label="@string/app_name" android:launchMode="singleTask"
             android:theme="@style/SplashTheme">
@@ -211,6 +218,7 @@
             </intent-filter>
         </service>
 
+        <service android:name="com.gizwits.opensource.appkit.BleModule.bluetooth.BluetoothLeService" />
 
         <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
         <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->

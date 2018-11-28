@@ -14,6 +14,23 @@
         <item name="actionMenuTextAppearance">@style/MyMenuTextStyle</item>
     </style>
 
+    <style name="Theme.FloatActivity" parent="android:style/Theme.Dialog">
+
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@color/white</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+
+        <!--&lt;!&ndash;是否模糊&ndash;&gt;-->
+        <!--<item name="android:backgroundDimEnabled">true</item>-->
+        <!--&lt;!&ndash;是否透明&ndash;&gt;-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+
+    </style>
 
     <!-- Application thianeme. -->
     <style name="AppTheme" parent="AppThemeBase">

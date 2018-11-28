@@ -1,184 +1,292 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
 
-    <include layout="@layout/header_toolbar" />
-    
-	<ScrollView 
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    android:background="@color/background_color"
-	    android:fadingEdge="vertical"
-	    android:paddingBottom="10dp"
-	    android:paddingTop="20dp"
-	    android:scrollbars="vertical" >
+	<include layout="@layout/header_toolbar" />
 
-	    <LinearLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:orientation="vertical"
-	        android:scrollbars="vertical" >
-	        
-			
-            <!-- airHumi(数值只读) -->
-			 <RelativeLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="1dp"
-					android:background="@color/white"
-					android:padding="10dp" >
-			 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="match_parent"
-						android:layout_centerVertical="true"
-						android:text="airHumi" />
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/background_color"
+		android:fadingEdge="vertical"
+		android:paddingBottom="10dp"
+		android:paddingTop="20dp"
+		android:scrollbars="vertical" >
 
-					<TextView
-						android:id="@+id/tv_data_airHumi"
-						android:layout_width="110dp"
-						android:layout_height="match_parent"
-						android:layout_alignParentRight="true"
-						android:layout_centerVertical="true"
-						android:gravity="end"
-						android:textSize="16sp"
-						android:textColor="@color/gray" />	
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:scrollbars="vertical" >
+
+
+			<!-- airHumi(数值只读) -->
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="1dp"
+				android:background="@color/white"
+				android:padding="10dp" >
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_centerVertical="true"
+					android:text="空气湿度" />
+
+				<TextView
+					android:id="@+id/tv_data_airHumi"
+					android:layout_width="110dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentEnd="true"
+					android:layout_marginEnd="15dp"
+					android:gravity="end"
+					android:textColor="@color/gray"
+					android:textSize="16sp" />
+
+				<TextView
+					android:id="@+id/tv_data_airHumi_danwei"
+					android:layout_width="110dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentEnd="true"
+					android:gravity="end"
+					android:textColor="@color/gray"
+					android:text="%"
+					android:textSize="16sp" />
+
 			</RelativeLayout>
-	
-			
-            <!-- soilHumi(数值只读) -->
-			 <RelativeLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="1dp"
-					android:background="@color/white"
-					android:padding="10dp" >
-			 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="match_parent"
-						android:layout_centerVertical="true"
-						android:text="soilHumi" />
 
-					<TextView
-						android:id="@+id/tv_data_soilHumi"
-						android:layout_width="110dp"
-						android:layout_height="match_parent"
-						android:layout_alignParentRight="true"
-						android:layout_centerVertical="true"
-						android:gravity="end"
-						android:textSize="16sp"
-						android:textColor="@color/gray" />	
-			</RelativeLayout>
-	
-			
-            <!-- illumination(数值只读) -->
-			 <RelativeLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="1dp"
-					android:background="@color/white"
-					android:padding="10dp" >
-			 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="match_parent"
-						android:layout_centerVertical="true"
-						android:text="illumination" />
 
-					<TextView
-						android:id="@+id/tv_data_illumination"
-						android:layout_width="110dp"
-						android:layout_height="match_parent"
-						android:layout_alignParentRight="true"
-						android:layout_centerVertical="true"
-						android:gravity="end"
-						android:textSize="16sp"
-						android:textColor="@color/gray" />	
-			</RelativeLayout>
-	
-			
-            <!-- airTemp(数值只读) -->
-			 <RelativeLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="1dp"
-					android:background="@color/white"
-					android:padding="10dp" >
-			 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="match_parent"
-						android:layout_centerVertical="true"
-						android:text="airTemp" />
+			<!-- soilHumi(数值只读) -->
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="1dp"
+				android:background="@color/white"
+				android:padding="10dp" >
 
-					<TextView
-						android:id="@+id/tv_data_airTemp"
-						android:layout_width="110dp"
-						android:layout_height="match_parent"
-						android:layout_alignParentRight="true"
-						android:layout_centerVertical="true"
-						android:gravity="end"
-						android:textSize="16sp"
-						android:textColor="@color/gray" />	
-			</RelativeLayout>
-	
-			
-            <!-- soilTemp(数值只读) -->
-			 <RelativeLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="1dp"
-					android:background="@color/white"
-					android:padding="10dp" >
-			 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="match_parent"
-						android:layout_centerVertical="true"
-						android:text="soilTemp" />
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_centerVertical="true"
+					android:text="土壤湿度" />
 
-					<TextView
-						android:id="@+id/tv_data_soilTemp"
-						android:layout_width="110dp"
-						android:layout_height="match_parent"
-						android:layout_alignParentRight="true"
-						android:layout_centerVertical="true"
-						android:gravity="end"
-						android:textSize="16sp"
-						android:textColor="@color/gray" />	
-			</RelativeLayout>
-	
-			
-            <!-- co2Conc(数值只读) -->
-			 <RelativeLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="1dp"
-					android:background="@color/white"
-					android:padding="10dp" >
-			 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="match_parent"
-						android:layout_centerVertical="true"
-						android:text="co2Conc" />
+				<TextView
+					android:id="@+id/tv_data_soilHumi"
+					android:layout_width="110dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_marginEnd="15dp"
+					android:layout_centerVertical="true"
+					android:gravity="end"
+					android:textSize="16sp"
+					android:textColor="@color/gray" />
 
-					<TextView
-						android:id="@+id/tv_data_co2Conc"
-						android:layout_width="110dp"
-						android:layout_height="match_parent"
-						android:layout_alignParentRight="true"
-						android:layout_centerVertical="true"
-						android:gravity="end"
-						android:textSize="16sp"
-						android:textColor="@color/gray" />	
+				<TextView
+					android:id="@+id/tv_data_soliHumi_danwei"
+					android:layout_width="110dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentEnd="true"
+					android:gravity="end"
+					android:textColor="@color/gray"
+					android:text="%"
+					android:textSize="16sp" />
 			</RelativeLayout>
-	
-		
-	    </LinearLayout>
+
+
+			<!-- illumination(数值只读) -->
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="1dp"
+				android:background="@color/white"
+				android:padding="10dp" >
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_centerVertical="true"
+					android:text="光照强度" />
+
+				<TextView
+					android:id="@+id/tv_data_illumination"
+					android:layout_width="110dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:layout_marginEnd="17dp"
+					android:gravity="end"
+					android:textSize="16sp"
+					android:textColor="@color/gray" />
+
+				<TextView
+					android:id="@+id/tv_data_illumination_danwei"
+					android:layout_width="110dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentEnd="true"
+					android:gravity="end"
+					android:textColor="@color/gray"
+					android:text="lx"
+					android:textSize="16sp" />
+
+			</RelativeLayout>
+
+
+			<!-- airTemp(数值只读) -->
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="1dp"
+				android:background="@color/white"
+				android:padding="10dp" >
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_centerVertical="true"
+					android:text="空气温度" />
+
+				<TextView
+					android:id="@+id/tv_data_airTemp"
+					android:layout_width="110dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:layout_marginEnd="16dp"
+					android:gravity="end"
+					android:textSize="16sp"
+					android:textColor="@color/gray" />
+				<TextView
+					android:id="@+id/tv_data_airTemp_danwei"
+					android:layout_width="110dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentEnd="true"
+					android:gravity="end"
+					android:textColor="@color/gray"
+					android:text="°C"
+					android:textSize="16sp" />
+
+			</RelativeLayout>
+
+
+			<!-- soilTemp(数值只读) -->
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="1dp"
+				android:background="@color/white"
+				android:padding="10dp" >
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_centerVertical="true"
+					android:text="土壤温度" />
+
+				<TextView
+					android:id="@+id/tv_data_soilTemp"
+					android:layout_width="110dp"
+					android:layout_marginEnd="16dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:gravity="end"
+					android:textSize="16sp"
+					android:textColor="@color/gray" />
+
+				<TextView
+					android:id="@+id/tv_data_soilTemp_danwei"
+					android:layout_width="110dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentEnd="true"
+					android:gravity="end"
+					android:textColor="@color/gray"
+					android:text="°C"
+					android:textSize="16sp" />
+
+			</RelativeLayout>
+
+
+			<!-- co2Conc(数值只读) -->
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="1dp"
+				android:background="@color/white"
+				android:padding="10dp" >
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_centerVertical="true"
+					android:text="二氧化碳浓度" />
+
+				<TextView
+					android:id="@+id/tv_data_co2Conc"
+					android:layout_width="110dp"
+					android:layout_marginEnd="35dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:gravity="end"
+					android:textSize="16sp"
+					android:textColor="@color/gray" />
+
+				<TextView
+					android:id="@+id/tv_data_co2Conc_danwei"
+					android:layout_width="110dp"
+					android:layout_height="match_parent"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentEnd="true"
+					android:gravity="end"
+					android:textColor="@color/gray"
+					android:text="ppm"
+					android:textSize="16sp" />
+
+			</RelativeLayout>
+
+
+		</LinearLayout>
 
 	</ScrollView>
+
+	<Button
+		android:id="@+id/water"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="浇水肥" />
+
+	<Button
+		android:id="@+id/fan"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="开风扇" />
+
+	<Button
+		android:id="@+id/hot"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="加热" />
+
+	<Button
+		android:id="@+id/light"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="开灯" />
+
+	<Button
+		android:id="@+id/ble"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="蓝牙" />
+
+
 </LinearLayout>

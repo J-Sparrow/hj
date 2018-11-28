@@ -2,5 +2,88 @@
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="toolbar_hight">50dp</dimen>
+    <dimen name="padding_mini_a">2dp</dimen>
+    <dimen name="padding_mini_b">4dp</dimen>
+    <dimen name="padding_mini_c">6dp</dimen>
+    <dimen name="padding_mini_d">8dp</dimen>
+
+    <dimen name="padding_micro_a">10dp</dimen>
+    <dimen name="padding_micro_b">12dp</dimen>
+    <dimen name="padding_micro_c">14dp</dimen>
+    <dimen name="padding_micro_d">16dp</dimen>
+    <dimen name="padding_micro_e">18dp</dimen>
+
+    <dimen name="padding_small_a">20dp</dimen>
+    <dimen name="padding_small_b">22dp</dimen>
+    <dimen name="padding_small_c">24dp</dimen>
+    <dimen name="padding_small_d">26dp</dimen>
+    <dimen name="padding_small_e">28dp</dimen>
+
+    <dimen name="padding_middle_a">30dp</dimen>
+    <dimen name="padding_middle_b">32dp</dimen>
+    <dimen name="padding_middle_c">34dp</dimen>
+    <dimen name="padding_middle_d">36dp</dimen>
+    <dimen name="padding_middle_e">38dp</dimen>
+
+    <dimen name="padding_large_a">40dp</dimen>
+    <dimen name="padding_large_b">42dp</dimen>
+    <dimen name="padding_large_c">44dp</dimen>
+    <dimen name="padding_large_d">46dp</dimen>
+    <dimen name="padding_large_e">48dp</dimen>
+
+    <dimen name="padding_huge_a">50dp</dimen>
+    <dimen name="padding_huge_b">52dp</dimen>
+    <dimen name="padding_huge_c">54dp</dimen>
+    <dimen name="padding_huge_d">56dp</dimen>
+    <dimen name="padding_huge_e">58dp</dimen>
+
+    <!--通用文字大小-->
+    <dimen name="font_a1">10sp</dimen>
+    <dimen name="font_a2">12sp</dimen>
+    <dimen name="font_a3">14sp</dimen>
+    <dimen name="font_a4">16sp</dimen>
+    <dimen name="font_a5">18sp</dimen>
+
+    <dimen name="font_b1">20sp</dimen>
+    <dimen name="font_b2">22sp</dimen>
+    <dimen name="font_b3">24sp</dimen>
+    <dimen name="font_b4">26sp</dimen>
+    <dimen name="font_b5">28sp</dimen>
+
+    <dimen name="font_c1">30sp</dimen>
+    <dimen name="font_c2">32sp</dimen>
+    <dimen name="font_c3">34sp</dimen>
+    <dimen name="font_c4">36sp</dimen>
+    <dimen name="font_c5">38sp</dimen>
+
+    <dimen name="font_d1">40sp</dimen>
+    <dimen name="font_d2">42sp</dimen>
+    <dimen name="font_d3">44sp</dimen>
+    <dimen name="font_d4">46sp</dimen>
+    <dimen name="font_d5">48sp</dimen>
+
+    <dimen name="font_e1">50sp</dimen>
+    <dimen name="font_e2">52sp</dimen>
+    <dimen name="font_e3">54sp</dimen>
+    <dimen name="font_e4">56sp</dimen>
+    <dimen name="font_e5">58sp</dimen>
+    <dimen name="font_e6">60sp</dimen>
+
+    <dimen name="music_btn_size">60dp</dimen>
+    <dimen name="blockly_sensor_show">170dp</dimen>
+
+    <dimen name="drive_speed_width">100dp</dimen>
+    <dimen name="drive_speed_height">20dp</dimen>
+    <dimen name="drive_speed_margin_start">100dp</dimen>
+    <dimen name="drive_rocker_height">200dp</dimen>
+    <dimen name="drive_rocker_radius">30dp</dimen>
+    <dimen name="drive_btn_size">70dp</dimen>
+    <dimen name="findline_btn_size">60dp</dimen>
+    <dimen name="findline_start_size">200dp</dimen>
+    <dimen name="control_height">56dp</dimen>
+    <dimen name="setting_btn_size">34dp</dimen>
+    <dimen name="main_image">110dp</dimen>
+    <dimen name="button_bg_coner">6dp</dimen>
+    <dimen name="button_bg_stoke">2dp</dimen>
 
 </resources>

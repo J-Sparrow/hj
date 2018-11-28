@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
@@ -36,13 +37,16 @@ import java.util.concurrent.ConcurrentHashMap;
 import com.gizwits.gizwifisdk.api.GizWifiDevice;
 import com.gizwits.gizwifisdk.enumration.GizWifiDeviceNetStatus;
 import com.gizwits.gizwifisdk.enumration.GizWifiErrorCode;
+import com.gizwits.opensource.appkit.BleModule.SearchActivity;
+import com.gizwits.opensource.appkit.BleModule.Util.DeviceControlUtil;
+import com.gizwits.opensource.appkit.BleModule.bluetooth.BleInterface;
 import com.gizwits.opensource.appkit.CommonModule.GosDeploy;
 import com.gizwits.opensource.appkit.R;
 import com.gizwits.opensource.appkit.utils.HexStrUtils;
 import com.gizwits.opensource.appkit.view.HexWatcher;
 
 public class GosDeviceControlActivity extends GosControlModuleBaseActivity
-		implements OnClickListener, OnEditorActionListener, OnSeekBarChangeListener {
+		implements OnClickListener, OnEditorActionListener, OnSeekBarChangeListener,BleInterface.MessageCallback {
 
 	/** 设备列表传入的设备变量 */
 	private GizWifiDevice mDevice;
@@ -53,6 +57,11 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 	private TextView tv_data_airTemp;
 	private TextView tv_data_soilTemp;
 	private TextView tv_data_co2Conc;
+	private Button light,hot,water,fan;
+	private static final int SEARCHACTIVITY_CONECT = 2;
+
+	private final int CONNECTED = 0;
+	private final int DISCONNECTED = 1;
 
 	private enum handler_key {
 
@@ -89,6 +98,10 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 		}
 	};
 
+
+
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -111,6 +124,18 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 		tv_data_airTemp = (TextView) findViewById(R.id.tv_data_airTemp);
 		tv_data_soilTemp = (TextView) findViewById(R.id.tv_data_soilTemp);
 		tv_data_co2Conc = (TextView) findViewById(R.id.tv_data_co2Conc);
+
+		Button bleSearch = (Button) findViewById(R.id.ble);
+		bleSearch.setOnClickListener(this);
+//		bleSearch.setVisibility(View.GONE);
+		water = (Button) findViewById(R.id.water);
+		water.setOnClickListener(this);
+		fan = (Button) findViewById(R.id.fan);
+		fan.setOnClickListener(this);
+		hot = (Button) findViewById(R.id.hot);
+		hot.setOnClickListener(this);
+		light = (Button) findViewById(R.id.light);
+		light.setOnClickListener(this);
 	}
 
 	private void initEvent() {
@@ -146,12 +171,87 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 		mDevice.setSubscribe(false);
 		mDevice.setListener(null);
 	}
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		switch (requestCode) {
+			case SEARCHACTIVITY_CONECT:
+				if (resultCode == RESULT_OK) {
+					//TODO 显示连接结果
+//                    Toast.makeText(BleActivity.this,"连接成功",Toast.LENGTH_SHORT).show();
+				}
+				break;
+//			case REQUEST_ENABLE_BT:
+//                if (resultCode == REQUEST_ENABLE_BT) {
+////                    Toast.makeText(this, "蓝牙已启用", Toast.LENGTH_SHORT).show();
+//                } else {
+////                    Toast.makeText(this, "蓝牙未启用", Toast.LENGTH_SHORT).show();
+//                }
+//				break;
+			default:
+				break;
+		}
+	}
+
+
+	private boolean isLight =false;
+	private boolean isWater =false;
+	private boolean isHot =false;
+	private boolean isFan =false;
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		default:
-			break;
+			case  R.id.ble:
+				Intent intent1 = new Intent(GosDeviceControlActivity.this, SearchActivity.class);
+				startActivityForResult(intent1, SEARCHACTIVITY_CONECT);
+				break;
+			case R.id.light:
+				if (isLight){
+					DeviceControlUtil.closeLightAll(this,GosDeviceControlActivity.this);
+					isLight = false;
+					light.setText("开灯");
+				}else{
+					DeviceControlUtil.greenLightAll(this, this);
+					isLight = true;
+					light.setText("关灯");
+				}
+				break;
+			case R.id.water:
+				if (isWater){
+					DeviceControlUtil.motor("01","01",0,this, this);
+					isWater = false;
+					water.setText("浇水肥");
+				}else{
+					DeviceControlUtil.motor("01","01",255,this, this);
+					isWater = true;
+					water.setText("停止浇水肥");
+				}
+				break;
+			case R.id.fan:
+				if (isFan){
+					DeviceControlUtil.motor("02","01",0,this, this);
+					isFan = false;
+					fan.setText("开风扇");
+				}else{
+					DeviceControlUtil.motor("02","01",255,this, this);
+					isFan = true;
+					fan.setText("关风扇");
+				}
+				break;
+			case R.id.hot:
+				if (isHot){
+					DeviceControlUtil.motor("03","01",0,this, this);
+					isHot = false;
+					hot.setText("加热");
+				}else{
+					DeviceControlUtil.motor("03","01",255,this, this);
+					isHot = true;
+					hot.setText("取消加热");
+				}
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -460,6 +560,16 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 			getDataFromReceiveDataMap(dataMap);
 			mHandler.sendEmptyMessage(handler_key.UPDATE_UI.ordinal());
 		}
+	}
+
+	@Override
+	public void onMessageReceive(String data) {
+
+	}
+
+	@Override
+	public void onMessageFailed(String msg) {
+
 	}
 
 }
