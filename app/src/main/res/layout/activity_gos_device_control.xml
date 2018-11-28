@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/header_toolbar" />
+    
+	<ScrollView 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="@color/background_color"
+	    android:fadingEdge="vertical"
+	    android:paddingBottom="10dp"
+	    android:paddingTop="20dp"
+	    android:scrollbars="vertical" >
+
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:scrollbars="vertical" >
+	        
+			
+            <!-- airHumi(数值只读) -->
+			 <RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="1dp"
+					android:background="@color/white"
+					android:padding="10dp" >
+			 
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent"
+						android:layout_centerVertical="true"
+						android:text="airHumi" />
+
+					<TextView
+						android:id="@+id/tv_data_airHumi"
+						android:layout_width="110dp"
+						android:layout_height="match_parent"
+						android:layout_alignParentRight="true"
+						android:layout_centerVertical="true"
+						android:gravity="end"
+						android:textSize="16sp"
+						android:textColor="@color/gray" />	
+			</RelativeLayout>
+	
+			
+            <!-- soilHumi(数值只读) -->
+			 <RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="1dp"
+					android:background="@color/white"
+					android:padding="10dp" >
+			 
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent"
+						android:layout_centerVertical="true"
+						android:text="soilHumi" />
+
+					<TextView
+						android:id="@+id/tv_data_soilHumi"
+						android:layout_width="110dp"
+						android:layout_height="match_parent"
+						android:layout_alignParentRight="true"
+						android:layout_centerVertical="true"
+						android:gravity="end"
+						android:textSize="16sp"
+						android:textColor="@color/gray" />	
+			</RelativeLayout>
+	
+			
+            <!-- illumination(数值只读) -->
+			 <RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="1dp"
+					android:background="@color/white"
+					android:padding="10dp" >
+			 
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent"
+						android:layout_centerVertical="true"
+						android:text="illumination" />
+
+					<TextView
+						android:id="@+id/tv_data_illumination"
+						android:layout_width="110dp"
+						android:layout_height="match_parent"
+						android:layout_alignParentRight="true"
+						android:layout_centerVertical="true"
+						android:gravity="end"
+						android:textSize="16sp"
+						android:textColor="@color/gray" />	
+			</RelativeLayout>
+	
+			
+            <!-- airTemp(数值只读) -->
+			 <RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="1dp"
+					android:background="@color/white"
+					android:padding="10dp" >
+			 
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent"
+						android:layout_centerVertical="true"
+						android:text="airTemp" />
+
+					<TextView
+						android:id="@+id/tv_data_airTemp"
+						android:layout_width="110dp"
+						android:layout_height="match_parent"
+						android:layout_alignParentRight="true"
+						android:layout_centerVertical="true"
+						android:gravity="end"
+						android:textSize="16sp"
+						android:textColor="@color/gray" />	
+			</RelativeLayout>
+	
+			
+            <!-- soilTemp(数值只读) -->
+			 <RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="1dp"
+					android:background="@color/white"
+					android:padding="10dp" >
+			 
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent"
+						android:layout_centerVertical="true"
+						android:text="soilTemp" />
+
+					<TextView
+						android:id="@+id/tv_data_soilTemp"
+						android:layout_width="110dp"
+						android:layout_height="match_parent"
+						android:layout_alignParentRight="true"
+						android:layout_centerVertical="true"
+						android:gravity="end"
+						android:textSize="16sp"
+						android:textColor="@color/gray" />	
+			</RelativeLayout>
+	
+			
+            <!-- co2Conc(数值只读) -->
+			 <RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="1dp"
+					android:background="@color/white"
+					android:padding="10dp" >
+			 
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent"
+						android:layout_centerVertical="true"
+						android:text="co2Conc" />
+
+					<TextView
+						android:id="@+id/tv_data_co2Conc"
+						android:layout_width="110dp"
+						android:layout_height="match_parent"
+						android:layout_alignParentRight="true"
+						android:layout_centerVertical="true"
+						android:gravity="end"
+						android:textSize="16sp"
+						android:textColor="@color/gray" />	
+			</RelativeLayout>
+	
+		
+	    </LinearLayout>
+
+	</ScrollView>
+</LinearLayout>
