@@ -11,6 +11,8 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -175,6 +177,14 @@ public class SearchActivity extends Activity {
 
     private void initBluetooth() {
 
+
+        //申请定位权限，才能用蓝牙
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (this.checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION}, 123);
+            }
+        }
+
         //注册广播接收者，监听扫描到的蓝牙设备
         IntentFilter filter = new IntentFilter();
         //发现设备
@@ -189,6 +199,8 @@ public class SearchActivity extends Activity {
             startActivityForResult(enableBluetooth, 1);
         }
         mBluetoothAdapter.startDiscovery();
+        Log.d(TAG, "start11111111111111111111111111" );
+
     }
 
     private BroadcastReceiver mBluetoothReceiver = new BroadcastReceiver() {
@@ -210,6 +222,7 @@ public class SearchActivity extends Activity {
                     ibeaconName = scanDevice.getName();
                 }
                 String mac = scanDevice.getAddress();
+                Log.d(TAG, "111111111111111111111111111" );
                 boolean flag = true;
                 for (int x = 0; x < list.size(); x++) {
                     if (mac.equals(list.get(x).getMac())) {
